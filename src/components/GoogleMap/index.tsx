@@ -8,7 +8,7 @@ interface Coords {
   lng: any;
 }
 
-const AnyReactComponent = ({text}: any) => <div>{text}</div>;
+const GOOGLE_MAPS_API_KEY =  process.env.REACT_APP_GOOGLE_MAPS_API_KEY || ''
 
 const GoogleMap = (props: any) => {
     const [center, setCenter] = useState<Coords>({lat: -22.90278, lng: -43.2075 });
@@ -16,12 +16,11 @@ const GoogleMap = (props: any) => {
     const [zoom, setZoom] = useState(3);
     
     
-    const _onClick = (obj: GoogleMapReact.ClickEventValue) => {
+    const onMapClick = (eventValue: GoogleMapReact.ClickEventValue) => {
        const nextCoords: Coords = {
-        lat: obj.lat,
-        lng: obj.lng
+        lat: eventValue.lat,
+        lng: eventValue.lng
        }
-       console.log({ nextCoords })
        setCoords(nextCoords)
     }
     
@@ -30,10 +29,10 @@ const GoogleMap = (props: any) => {
         <SearchButton onClick={()=>{}} />
         <GoogleMapReact
           options={{ draggableCursor: 'pointer' }}
-          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY || ''}}
+          bootstrapURLKeys={{ key: GOOGLE_MAPS_API_KEY}}
           defaultCenter={center}
           defaultZoom={zoom}
-          onClick={_onClick}
+          onClick={onMapClick}
         >
           <Marker
             lat={coords.lat}
