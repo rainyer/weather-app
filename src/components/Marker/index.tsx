@@ -1,17 +1,16 @@
 import React from 'react';
-import './styles.css';
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const Marker = (props: any) => {
   const { color, name, id } = props;
   return (
-    <div>
-      <div
-        className="pin bounce"
-        style={{ backgroundColor: color, cursor: 'pointer' }}
-        title={name}
+      <LocationOnIcon 
+        style={{
+          color: '#EA4335', 
+          fontSize: 40,
+          transform: "translate(-50%, -100%)" 
+        }}
       />
-      <div className="pulse" />
-    </div>
   );
 };
 
