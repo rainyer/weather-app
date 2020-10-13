@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
-import SearchButton from '../SearchButton';
-import Marker from '../Marker';
+import { SearchButton, Marker, CitiesList } from '../../components';
 import axios from 'axios';
-import CitiesList from '../CitiesList';
-
 
 interface Coords {
   lat: number;
@@ -16,7 +13,7 @@ const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY || '';
 const WEATHER_API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY || '';
 console.log(WEATHER_API_KEY);
 
-const GoogleMap = (props: any) => {
+const HomePage = (props: any) => {
   const [cities, setCities] = useState([]);
   const [loadingCities, setLoadingCities] = useState(false);
   const [center, setCenter] = useState<Coords>({
@@ -42,13 +39,12 @@ const GoogleMap = (props: any) => {
     setLoadingCities(true);
     try {
       const response = await axios.get(weatherApiUrl);
-      setLoadingCities(false); 
-      setCities(response.data.list);  
+      setLoadingCities(false);
+      setCities(response.data.list);
     } catch (error) {
       setLoadingCities(false);
       setCities([]);
     }
-    
   };
 
   return (
@@ -110,4 +106,4 @@ const GoogleMap = (props: any) => {
   );
 };
 
-export default GoogleMap;
+export default HomePage;
