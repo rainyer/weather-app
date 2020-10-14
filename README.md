@@ -64,7 +64,7 @@
 
 
 
-**Third Step: Running the app**
+**Second Step: Running the app**
 
   After dependencies being installed you can run ```yarn start``` to run the project. You browser will open automatically, if it doesn't visit http://localhost:3000/ to check the app running
 
