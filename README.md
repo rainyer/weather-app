@@ -60,7 +60,7 @@
 
 **Fisrt step: Environment variables**
 
-  Create a `.env.local` in the project root the contents of the file `api-keys.txt`,
+  Create a `.env.local` in the project root the with contents of the file `api-keys.txt`,
   it will make the api keys for Google Maps and OpenWeather avaiable in your developement enviroment and won't send them to CVS.
 
 
