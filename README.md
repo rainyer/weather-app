@@ -20,7 +20,7 @@
 
 **Google-map-react component + Google Cloud Platform**
 
-  The app map solution was a mix of a pre-made component for encapsulating Google Maps Javascript and the Google Cloud Platform services for maps, I had to configure a new app in the console and get the key for that specific api. the key is in api-keys.txt.
+  The app map solution was a mix of a pre-made component for encapsulating Google Maps Javascript and the Google Cloud Platform services for maps, I had to configure a new app in the console and get the key for that specific api.
 
 **Axios + Open Weather Map**
 
