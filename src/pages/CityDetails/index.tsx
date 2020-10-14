@@ -1,25 +1,50 @@
-import React from 'react'
-import { connect } from "react-redux";
-import { StoreState } from "../../reducers";
-import { City } from "../../reducers/citiesReducer";
+import React from 'react';
+import { connect } from 'react-redux';
+import { StoreState } from '../../reducers';
+import { City } from '../../reducers/citiesReducer';
+import { useParams } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
 
 interface CityDetailsProps {
-  cities?: City[]
+  cities: City[];
 }
 
-function CityDetails(props: CityDetailsProps) {
-  console.log({ props })
+function NotFound() {
   return (
     <div>
-      Yo
+      Sorry we could not find the city data
     </div>
   )
 }
 
-const mapStateToProps = (state: StoreState) => {
-  return {
-    cities: state.cities
-  }
+const CityInfo = (props:any) => {
+  return (
+    <div>
+      <Typography variant="h6" gutterBottom>
+        {props.city.name}
+      </Typography>
+      <Typography variant="subtitle1" gutterBottom>
+        {props.city.main.temp_max + '-' + props.city.main.temp_min}
+      </Typography>
+    </div>
+  )
 }
 
+function CityDetails(props: CityDetailsProps) {
+  const { cityId } = useParams()
+  const city = props.cities.find(c => c.id == cityId)
+  return city ? <CityInfo city={city} /> : <NotFound />
+}
+
+CityDetails.defaultProps = {
+  cities: []
+}
+
+const mapStateToProps = (state: StoreState) => {
+  return {
+    cities: state.cities,
+  };
+};
+
 export default connect(mapStateToProps, null)(CityDetails)
+

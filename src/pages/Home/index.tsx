@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { SearchButton, Marker, CitiesList } from '../../components';
+import { Creators as citiesActions } from '../../reducers/citiesReducer';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 interface Coords {
   lat: number;
@@ -41,6 +43,7 @@ const HomePage = (props: any) => {
       const response = await axios.get(weatherApiUrl);
       setLoadingCities(false);
       setCities(response.data.list);
+      props.setCities(response.data.list)
     } catch (error) {
       setLoadingCities(false);
       setCities([]);
@@ -106,4 +109,6 @@ const HomePage = (props: any) => {
   );
 };
 
-export default HomePage;
+export default connect(null, {
+  ...citiesActions,
+})(HomePage);

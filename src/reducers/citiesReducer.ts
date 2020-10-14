@@ -1,5 +1,6 @@
 // State definition
 export interface City {
+  id: number;
   name: string;
 }
 
@@ -17,6 +18,7 @@ interface SetCitiesAction {
 // Action Creators definitions
 export const Creators = {
   setCities: (payload: City[]) => {
+    console.log('yoooo', payload);
     return {
         type: ActionTypes.SET_CITIES,
         payload
