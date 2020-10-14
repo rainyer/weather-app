@@ -57,15 +57,7 @@
 
 ## Running the project
 
-
-**Fisrt step: Environment variables**
-
-  Create a `.env.local` in the project root the with contents of the file `api-keys.txt`,
-  it will make the api keys for Google Maps and OpenWeather avaiable in your developement enviroment and won't send them to CVS.
-
-
-
-**Second Step: Project dependencies**
+**Fisrt step: Project dependencies**
 
   Open a terminal in the project root folder and type the command ```yarn install``` to install all project dependencies. 
   In case you don't have Yarn check its docs on how to make the installation process here https://classic.yarnpkg.com/en/docs/getting-started
