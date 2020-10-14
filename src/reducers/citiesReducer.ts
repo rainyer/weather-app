@@ -1,24 +1,8 @@
-// State definition
-export interface City {
-  id: number;
-  name: string;
-}
+import { ActionTypes, SetCitiesAction } from "../types/actions"
+import { City } from "../types/domain"
 
-// Action Types definition
-export enum ActionTypes {
-  SET_CITIES = 'cities/SET_CITIES',
-}
-
-// Action definition
-interface SetCitiesAction {
-  type: ActionTypes.SET_CITIES;
-  payload: City[];
-}
-
-// Action Creators definitions
 export const Creators = {
   setCities: (payload: City[]) => {
-    console.log('yoooo', payload);
     return {
         type: ActionTypes.SET_CITIES,
         payload

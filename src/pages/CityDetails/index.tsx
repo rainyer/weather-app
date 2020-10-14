@@ -1,13 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../reducers';
-import { City } from '../../reducers/citiesReducer';
+import { CityDetailsProps, CityInfoProps } from '../../types/props';
 import { useParams } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-
-interface CityDetailsProps {
-  cities: City[];
-}
 
 function NotFound() {
   return (
@@ -17,7 +13,7 @@ function NotFound() {
   )
 }
 
-const CityInfo = (props:any) => {
+const CityInfo = (props: CityInfoProps) => {
   return (
     <div>
       <Typography variant="h6" gutterBottom>
