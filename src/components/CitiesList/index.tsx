@@ -3,7 +3,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Link } from 'react-router-dom';
-import { CitiesListProps } from '../../types/props';
+import { CitiesListProps } from '../../types/component-props';
 
 const CitiesList = (props: CitiesListProps) => {
   return (

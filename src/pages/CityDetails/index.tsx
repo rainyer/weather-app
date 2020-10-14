@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../reducers';
-import { CityDetailsProps, CityInfoProps } from '../../types/props';
+import { CityDetailsProps, CityInfoProps } from '../../types/component-props';
+import { CityDetailsParams } from '../../types/navigation';
 import { useParams } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { NotFound, CityInfo } from './styles';
 
 function CityDetails(props: CityDetailsProps) {
   
-  const { cityId } = useParams();
-  const city = props.cities.find((c) => c.id == cityId);
+  const { cityId } = useParams<CityDetailsParams>();
+  const city = props.cities.find((c) => c.id === Number(cityId));
 
   return city ? (
     <CityInfo>
