@@ -29,7 +29,7 @@ const HomePage = (props: any) => {
   };
 
   const getWeatherData = async (coords: Coordinate) => {
-    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/find?lat=${coords.lat}&lon=${coords.lng}&cnt=15&appid=${WEATHER_API_KEY}`;
+    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/find?lat=${coords.lat}&lon=${coords.lng}&cnt=15&units=metric&appid=${WEATHER_API_KEY}`;
     setLoadingCities(true);
     try {
       const response = await axios.get(weatherApiUrl);
