@@ -1,4 +1,4 @@
-# Weater App Modec - Documentation
+# Weather App - Documentation
 
 
 
